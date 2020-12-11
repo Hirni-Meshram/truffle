@@ -1,5 +1,7 @@
 dist: xenial
-sudo: required
+group: edge
+virt: lxd
+sudo: true
 language: node_js
 
 # configure Travis to run on-push builds only on PR-recipient branches
@@ -22,6 +24,18 @@ matrix:
     - node_js: 10
       env: FABRICEVM=true
     - node_js: 10
+      env: COVERAGE=true
+    - node_js: 10
+      arch: arm64
+      env: FABRICEVM=true
+    - node_js: 10
+      arch: arm64
+      env: COVERAGE=true
+    - node_js: 10
+      arch: arm64-graviton2
+      env: FABRICEVM=true
+    - node_js: 10
+      arch: arm64-graviton2
       env: COVERAGE=true
   allow_failures:
     - node_js: 10
